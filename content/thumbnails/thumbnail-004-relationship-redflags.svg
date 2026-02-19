@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <!-- Background gradient - relationship/caution -->
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff006e"/>
+      <stop offset="50%" style="stop-color:#ff006e"/>
+      <stop offset="100%" style="stop-color:#fb5607"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bg4)"/>
+  
+  <!-- Warning stripes -->
+  <rect x="0" y="0" width="1080" height="60" fill="#ffbe0b"/>
+  <rect x="0" y="1860" width="1080" height="60" fill="#ffbe0b"/>
+  
+  <!-- Warning emoji -->
+  <text x="540" y="450" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="220" fill="white">🚩</text>
+  
+  <!-- Main headline -->
+  <text x="540" y="750" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="95" fill="white" stroke="#000" stroke-width="3">THE RED FLAG</text>
+  <text x="540" y="880" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="95" fill="white" stroke="#000" stroke-width="3">I WISH I SAW</text>
+  <text x="540" y="1010" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="95" fill="white" stroke="#000" stroke-width="3">BEFORE DATING HIM</text>
+  
+  <!-- Subtitle with emotion -->
+  <rect x="200" y="1150" width="680" height="100" rx="20" fill="rgba(0,0,0,0.4)"/>
+  <text x="540" y="1220" text-anchor="middle" font-family="Arial, sans-serif" font-size="45" fill="white">Gaslighting, Manipulation &amp; Toxic Love</text>
+  
+  <!-- Before/after hint -->
+  <text x="540" y="1550" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" fill="#ffbe0b">💔 From Happy to Heartbroken</text>
+  
+  <!-- CTA -->
+  <text x="540" y="1750" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="60" fill="white">KNOW THE SIGNS →</text>
+</svg>

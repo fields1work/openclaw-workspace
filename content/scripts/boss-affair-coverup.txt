@@ -1,0 +1,41 @@
+# Story: "My Boss Asked Me To Cover His Affair"
+
+## Format
+TikTok Narration Video (30-45 seconds, male narrator voice)
+
+## Script
+
+**[HOOK - 0-3s]**
+"My boss asked me to LIE to his wife about where he was. And if I said no, I'd lose my raise."
+
+**[STORY - 3-25s]**
+I work at a mid-size tech company. Good money. Been there 18 months.
+
+Last month, my boss takes me to lunch. "Private matter," he says. We're at a steakhouse and he tells me he's been seeing someone - not his wife - every Thursday for the past 8 months.
+
+He wants ME to tell his wife he's in "client meetings" if she ever asks me directly. His wife runs in our same social circle. Our kids go to the same school.
+
+I say I'm not comfortable. He says, "That's unfortunate. Your promotion is up for review next week."
+
+**[TWIST/ENDING - 25-40s]**
+I didn't say yes. But I didn't say no. I just... froze.
+
+Then I found out he's done this before. My coworker Lisa covered for him last year. Got a 20% raise after. She quit 3 months later with no explanation.
+
+Now I'm supposed to have dinner with him and his wife on Saturday. She keeps texting me asking if he's been working late.
+
+**[CTA - 40-45s]**
+If I tell her, I lose my job. If I don't, I lose myself. What would you do?
+
+## Metadata
+- **Hook Type:** Moral blackmail + power dynamic
+- **Emotional Arc:** Professional tension → moral trap → community complicity
+- **Engagement Triggers:** workplace drama, ethical dilemma, "pick a lane" moment
+- **Visual Suggestion:** Office setting, phone screenshot animations, family vs work visuals
+- **Voice:** ElevenLabs - Adam or Josh (serious/concerned), pace: measured delivery
+- **Music:** Tension-building corporate thriller
+- **Comments Strategy:** "Tell her" vs "take the raise" will divide comments
+
+---
+**Status:** Ready for development  
+**Next Step:** Can move to scripts folder when ready
