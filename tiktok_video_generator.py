@@ -40,7 +40,7 @@ class TikTokVideoGenerator:
     
     def generate_video(self, output_name):
         """
-        Generate video from script
+        Generate complete video using moviepy
         Steps:
         1. Load voiceover MP3
         2. Load gameplay footage (loop/cut to duration)
@@ -52,29 +52,154 @@ class TikTokVideoGenerator:
         print(f"⏱️  Target duration: {VIDEO_DURATION}s")
         print(f"📐 Resolution: {VIDEO_WIDTH}x{VIDEO_HEIGHT}")
         
-        # TODO: Implement with moviepy or ffmpeg
-        # This is the framework - actual implementation needs moviepy install
-        
-        video_plan = {
-            "name": output_name,
-            "duration": VIDEO_DURATION,
-            "resolution": f"{VIDEO_WIDTH}x{VIDEO_HEIGHT}",
-            "fps": VIDEO_FPS,
-            "scenes": self.script.get("scenes", []),
-            "voiceover": self.script.get("voiceover_file"),
-            "gameplay": self.script.get("gameplay_type", "subway_surfers"),
-            "captions": self.script.get("captions", [])
-        }
-        
-        # Save plan for now (full implementation next)
-        plan_path = OUTPUT_DIR / f"{output_name}_plan.json"
-        with open(plan_path, 'w') as f:
-            json.dump(video_plan, f, indent=2)
-        
-        print(f"✅ Video plan saved: {plan_path}")
-        print(f"📝 Next: Install moviepy and implement video assembly")
-        
-        return plan_path
+        try:
+            from moviepy.editor import (VideoFileClip, AudioFileClip, TextClip, 
+                                       CompositeVideoClip, ColorClip)
+            from moviepy.video.fx.all import resize
+            
+            # Load gameplay footage
+            gameplay_path = GAMEPLAY_DIR / f"{self.script.get('gameplay_type', 'subway_surfers')}.mp4"
+            if not gameplay_path.exists():
+                print(f"⚠️  Gameplay footage not found: {gameplay_path}")
+                print(f"📝 Please download 60-second gameplay video to: {GAMEPLAY_DIR}")
+                return None
+            
+            print(f"📹 Loading gameplay: {gameplay_path}")
+            gameplay = VideoFileClip(str(gameplay_path))
+            
+            # Loop/crop gameplay to target duration
+            if gameplay.duration < VIDEO_DURATION:
+                # Loop if too short
+                loops_needed = int(VIDEO_DURATION / gameplay.duration) + 1
+                gameplay = gameplay.loop(n=loops_needed)
+            
+            # Trim to exact duration
+            gameplay = gameplay.subclip(0, VIDEO_DURATION)
+            
+            # Resize to 9:16 vertical (1080x1920)
+            gameplay = gameplay.resize((VIDEO_WIDTH, VIDEO_HEIGHT))
+            
+            # Load voiceover
+            voiceover_path = VOICEOVER_DIR / self.script.get('voiceover_file', 'voiceover.mp3')
+            if voiceover_path.exists():
+                print(f"🎙️  Loading voiceover: {voiceover_path}")
+                voiceover = AudioFileClip(str(voiceover_path))
+                # Trim voiceover to video duration
+                voiceover = voiceover.subclip(0, VIDEO_DURATION)
+                gameplay = gameplay.set_audio(voiceover)
+            else:
+                print(f"⚠️  Voiceover not found: {voiceover_path}")
+            
+            # Create caption clips
+            print("📝 Creating captions...")
+            caption_clips = []
+            
+            for caption in self.script.get('captions', []):
+                text = caption['text']
+                start = caption['start']
+                end = caption['end']
+                style = caption.get('style', 'body')
+                
+                # Style configuration
+                if style == 'hook':
+                    fontsize = 60
+                    color = '#ff6b35'
+                    stroke_color = 'black'
+                    stroke_width = 4
+                    font = 'Arial-Bold'
+                elif style == 'cliffhanger':
+                    fontsize = 65
+                    color = '#ff6b35'
+                    stroke_color = 'black'
+                    stroke_width = 5
+                    font = 'Arial-Bold'
+                elif style == 'emphasis':
+                    fontsize = 50
+                    color = '#ff6b35'
+                    stroke_color = 'black'
+                    stroke_width = 3
+                    font = 'Arial'
+                elif style == 'whisper':
+                    fontsize = 45
+                    color = '#ffffff'
+                    stroke_color = 'black'
+                    stroke_width = 3
+                    font = 'Arial-Italic'
+                else:  # body
+                    fontsize = 48
+                    color = '#ffffff'
+                    stroke_color = 'black'
+                    stroke_width = 3
+                    font = 'Arial'
+                
+                # Create text clip
+                txt_clip = TextClip(
+                    text,
+                    fontsize=fontsize,
+                    color=color,
+                    stroke_color=stroke_color,
+                    stroke_width=stroke_width,
+                    font=font,
+                    method='caption',
+                    size=(VIDEO_WIDTH - 100, None),
+                    align='center'
+                ).set_duration(end - start).set_start(start)
+                
+                # Position in lower 2/3 of screen
+                txt_clip = txt_clip.set_position(('center', 0.6), relative=True)
+                
+                caption_clips.append(txt_clip)
+            
+            # Add end card
+            end_card = TextClip(
+                "Part 2? 👀 Follow @FieldsBuildsAI",
+                fontsize=55,
+                color='#ff6b35',
+                stroke_color='black',
+                stroke_width=4,
+                font='Arial-Bold',
+                method='caption',
+                size=(VIDEO_WIDTH - 100, None),
+                align='center'
+            ).set_duration(3).set_start(VIDEO_DURATION - 3)
+            end_card = end_card.set_position(('center', 0.7), relative=True)
+            caption_clips.append(end_card)
+            
+            # Composite all layers
+            print("🎬 Compositing video layers...")
+            final_video = CompositeVideoClip([gameplay] + caption_clips)
+            final_video = final_video.set_duration(VIDEO_DURATION)
+            
+            # Export
+            output_path = OUTPUT_DIR / f"{output_name}.mp4"
+            print(f"💾 Exporting to: {output_path}")
+            
+            final_video.write_videofile(
+                str(output_path),
+                fps=VIDEO_FPS,
+                codec='libx264',
+                audio_codec='aac',
+                temp_audiofile=str(OUTPUT_DIR / 'temp-audio.m4a'),
+                remove_temp=True
+            )
+            
+            print(f"✅ VIDEO GENERATED: {output_path}")
+            
+            # Cleanup
+            gameplay.close()
+            if voiceover_path.exists():
+                voiceover.close()
+            final_video.close()
+            
+            return output_path
+            
+        except ImportError as e:
+            print(f"❌ moviepy not installed: {e}")
+            print(f"📝 Install with: pip install moviepy")
+            return None
+        except Exception as e:
+            print(f"❌ Error generating video: {e}")
+            return None
     
     def preview_script(self):
         """Print script breakdown for review"""
