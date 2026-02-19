@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff006e"/>
+      <stop offset="100%" style="stop-color:#8338ec"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bg1)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="900" cy="200" r="300" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="200" cy="1700" r="200" fill="rgba(255,255,255,0.05)"/>
+  
+  <!-- Warning/Hook icon area -->
+  <text x="540" y="450" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="200" fill="#ffbe0b">😱</text>
+  
+  <!-- Main text - broken into lines for TikTok readability -->
+  <text x="540" y="750" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="100" fill="white" stroke="#000" stroke-width="3">I CAUGHT MY BOYFRIEND</text>
+  <text x="540" y="900" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="100" fill="white" stroke="#000" stroke-width="3">WITH HIS SISTER'S</text>
+  <text x="540" y="1050" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="100" fill="white" stroke="#000" stroke-width="3">BEST FRIEND</text>
+  
+  <!-- Subtitle/Context -->
+  <text x="540" y="1200" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" fill="#ffbe0b">r/relationships Story</text>
+  
+  <!-- Reddit logo placeholder -->
+  <text x="540" y="1600" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="white">❤️ Reddit Drama Series ❤️</text>
+  
+  <!-- Hook text at bottom -->
+  <text x="540" y="1750" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="60" fill="#ffbe0b">FULL STORY →</text>
+</svg>

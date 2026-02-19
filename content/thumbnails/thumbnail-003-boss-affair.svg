@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <!-- Background gradient - corporate drama -->
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d00000"/>
+      <stop offset="100%" style="stop-color:#370617"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bg3)"/>
+  
+  <!-- Office pattern hint -->
+  <rect x="0" y="0" width="1080" height="1920" fill="url(#bg3)"/>
+  
+  <!-- Shocked face -->
+  <text x="540" y="500" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="220" fill="#ffba08">😳</text>
+  
+  <!-- Boss text style -->
+  <text x="540" y="800" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="85" fill="white" stroke="#000" stroke-width="3">MY BOSS ASKED ME</text>
+  <text x="540" y="920" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="85" fill="white" stroke="#000" stroke-width="3">TO COVER UP</text>
+  <text x="540" y="1040" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="85" fill="#ffba08" stroke="#000" stroke-width="3">HIS AFFAIR</text>
+  
+  <!-- Drama indicator -->
+  <rect x="290" y="1180" width="500" height="90" rx="45" fill="#ffba08"/>
+  <text x="540" y="1245" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="45" fill="#370617">WORKPLACE DRAMA 🔥</text>
+  
+  <!-- Teaser -->
+  <text x="540" y="1550" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" fill="#ffccd5">"HR doesn't need to know..."</text>
+  
+  <!-- CTA -->
+  <text x="540" y="1750" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="60" fill="white">WHAT I DID NEXT →</text>
+</svg>

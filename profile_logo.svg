@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#1a1a2e" rx="80" ry="80"/>
+  
+  <!-- F Letter -->
+  <text x="200" y="260" font-family="Arial, sans-serif" font-size="220" font-weight="bold" fill="#ff6b35" text-anchor="middle">F</text>
+  
+  <!-- Subtle accent line -->
+  <rect x="120" y="280" width="160" height="8" fill="#ff6b35" rx="4" ry="4"/>
+</svg>

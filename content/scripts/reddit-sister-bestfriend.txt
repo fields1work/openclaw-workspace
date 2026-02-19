@@ -1,0 +1,41 @@
+# Story: "I Caught My Boyfriend With His Sister's Best Friend"
+
+## Format
+TikTok Narration Video (30-45 seconds, female narrator voice)
+
+## Script
+
+**[HOOK - 0-3s]**
+"I caught my boyfriend of 3 years with my sister's best friend... in MY apartment."
+
+**[STORY - 3-25s]**
+I was pulling a double shift at work. My boyfriend said he was staying home to stream some games. I had a gut feeling, don't know why, so I checked my Ring camera around 10 PM. 
+
+Not one person. Five people. His boys. And her. My sister's best friend since middle school. In my living room. Drinking my wine.
+
+Called him - straight to voicemail. Drove home. Caught them coming out of MY bedroom.
+
+His excuse? "We were just chilling, babe. You're overreacting."
+
+I changed the locks that night. Blocked his number. My sister still doesn't know I saw her best friend grab his hand on the way out.
+
+**[TWIST/ENDING - 25-40s]**
+Here's the worst part: I found out from his Xbox messages that they'd been talking for 6 months. He told her I was "crazy" and "controlling." The girl my sister grew up with.
+
+It's been a week. My sister still tags her in memes. I haven't told anyone. Should I?
+
+**[CTA - 40-45s]**
+AITA for not exposing her yet?
+
+## Metadata
+- **Hook Type:** Immediate conflict + betrayal reveal
+- **Emotional Arc:** Suspicion → shock → betrayal → isolation
+- **Engagement Triggers:** cliffhanger ending, moral dilemma
+- **Visual Suggestion:** Fast cuts between "Ring clip" simulation, text messages, bedroom door
+- **Voice:** ElevenLabs - Nova or Bella (emotional but controlled), pace: moderate with pause after hook
+- **Music:** Sad trending audio, transition to suspenseful beat at reveal
+- **Comments Strategy:** Pin comment "NTA - drop the whole story" to drive engagement
+
+---
+**Status:** Ready for voiceover generation  
+**Next Step:** Generate ElevenLabs voiceover (or wait for Fields' preference)
