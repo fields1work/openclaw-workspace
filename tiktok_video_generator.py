@@ -31,12 +31,33 @@ class TikTokVideoGenerator:
         self.output_path = None
         
     def check_dependencies(self):
-        """Check if ffmpeg and required tools are available"""
+        """Check if ffmpeg and required tools are available, auto-fix PATH if needed"""
+        # Try standard check first
         try:
             subprocess.run(["ffmpeg", "-version"], capture_output=True, check=True)
             return True
         except (subprocess.CalledProcessError, FileNotFoundError):
-            return False
+            pass
+        
+        # Auto-detect ffmpeg in common locations
+        common_paths = [
+            r"C:\ffmpeg\bin",
+            r"C:\ffmpeg\ffmpeg-6.1.1-essentials_build\bin",
+            r"C:\Program Files\ffmpeg\bin",
+            r"C:\Users\field\ffmpeg\bin",
+        ]
+        
+        for path in common_paths:
+            ffmpeg_exe = Path(path) / "ffmpeg.exe"
+            if ffmpeg_exe.exists():
+                print(f"✅ Found ffmpeg at: {path}")
+                # Add to PATH for this session
+                os.environ["PATH"] = os.environ["PATH"] + ";" + path
+                # Also set IMAGEMAGICK_BINARY for moviepy if needed
+                os.environ["IMAGEIO_FFMPEG_EXE"] = str(ffmpeg_exe)
+                return True
+        
+        return False
     
     def generate_video(self, output_name):
         """
