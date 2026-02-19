@@ -19,12 +19,14 @@
 - [x] **GitHub pushed** ✅ Video generator + README + all docs
 
 ### In Progress
-- [ ] **Fields setting up banner** ⏳ Converting SVG → PNG for Twitter
-- [ ] **4 more viral TikTok scripts** 🔄 Aneko writing now
+- [x] **Fields enjoying dinner** 🍽️ With girlfriend (well deserved!)
+- [x] **4 more viral TikTok scripts** ✅ COMPLETED (002, 003, 004)
+- [x] **ffmpeg auto-fix** ✅ Pushed to GitHub
+- [x] **Aneko PFP created** ✅ Ready for Telegram
 - [ ] **Week 2-4 Twitter content** 🔄 Drafting autonomously
-- [ ] **Python video dependencies** ⏳ Fields to install moviepy + ffmpeg
+- [ ] **Python video test** ⏳ After dinner - auto-detect ready
 - [ ] **Day 2 tweet** ⏳ Scheduled for tomorrow 8 AM
-- [ ] **First TikTok video generation** ⏳ Ready after dependencies installed
+- [ ] **First TikTok video generation** ⏳ 4 scripts ready to go
 
 ### Recurring Checks
 - [x] Gateway fully operational ✅ Brave search + cron jobs active
