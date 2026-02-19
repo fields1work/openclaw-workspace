@@ -1,0 +1,155 @@
+{
+  "name": "viral_girlfriend_sister_v1",
+  "duration": 60,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "scenes": [
+    {
+      "time_start": 0,
+      "time_end": 3,
+      "text": "My girlfriend's sister hit on me at dinner",
+      "caption_style": "HOOK - Big, orange, center",
+      "visual_note": "Subway Surfers fast lane"
+    },
+    {
+      "time_start": 3,
+      "time_end": 8,
+      "text": "We've been dating two years. Her family loves me.",
+      "caption_style": "Context - White, lower third",
+      "visual_note": "Steady run, collecting coins"
+    },
+    {
+      "time_start": 8,
+      "time_end": 15,
+      "text": "Sunday dinner. Her parents' house. I'm the golden boyfriend.",
+      "caption_style": "Context - White, lower third",
+      "visual_note": "Continue steady run"
+    },
+    {
+      "time_start": 15,
+      "time_end": 20,
+      "text": "Sister keeps staring. I ignore it.",
+      "caption_style": "Escalation - White",
+      "visual_note": "Speed increases"
+    },
+    {
+      "time_start": 20,
+      "time_end": 26,
+      "text": "She \"accidentally\" touches my leg under the table.",
+      "caption_style": "Escalation - Orange emphasis",
+      "visual_note": "Near-miss with train"
+    },
+    {
+      "time_start": 26,
+      "time_end": 32,
+      "text": "I move my chair. She moves closer.",
+      "caption_style": "Escalation - White",
+      "visual_note": "Fast lane switching"
+    },
+    {
+      "time_start": 32,
+      "time_end": 38,
+      "text": "Bathroom break. She follows me into the hallway.",
+      "caption_style": "Twist - White",
+      "visual_note": "Tunnel section, dramatic"
+    },
+    {
+      "time_start": 38,
+      "time_end": 44,
+      "text": "Grabs my hand. Whispers: 'I've wanted you for months.'",
+      "caption_style": "Twist - Italic, orange",
+      "visual_note": "Slow motion near-miss"
+    },
+    {
+      "time_start": 44,
+      "time_end": 50,
+      "text": "Girlfriend calls from the kitchen: 'Babe, you okay?'",
+      "caption_style": "Twist - White",
+      "visual_note": "Speed returns normal"
+    },
+    {
+      "time_start": 50,
+      "time_end": 56,
+      "text": "Sister smiles. 'Don't answer. She doesn't know anything.'",
+      "caption_style": "Cliffhanger - White",
+      "visual_note": "Approaching jump ramp"
+    },
+    {
+      "time_start": 56,
+      "time_end": 60,
+      "text": "But my phone was recording everything.",
+      "caption_style": "HOOK PART 2 - BIG, orange, dramatic",
+      "visual_note": "Jumps ramp slow motion"
+    }
+  ],
+  "voiceover": "voiceover_girlfriend_sister.mp3",
+  "gameplay": "subway_surfers",
+  "captions": [
+    {
+      "text": "My girlfriend's sister hit on me at dinner",
+      "start": 0,
+      "end": 3,
+      "style": "hook"
+    },
+    {
+      "text": "We've been dating two years. Her family loves me.",
+      "start": 3,
+      "end": 8,
+      "style": "body"
+    },
+    {
+      "text": "Sunday dinner. Her parents' house. I'm the golden boyfriend.",
+      "start": 8,
+      "end": 15,
+      "style": "body"
+    },
+    {
+      "text": "Sister keeps staring. I ignore it.",
+      "start": 15,
+      "end": 20,
+      "style": "body"
+    },
+    {
+      "text": "She \"accidentally\" touches my leg under the table.",
+      "start": 20,
+      "end": 26,
+      "style": "emphasis"
+    },
+    {
+      "text": "I move my chair. She moves closer.",
+      "start": 26,
+      "end": 32,
+      "style": "body"
+    },
+    {
+      "text": "Bathroom break. She follows me into the hallway.",
+      "start": 32,
+      "end": 38,
+      "style": "body"
+    },
+    {
+      "text": "Grabs my hand. Whispers: 'I've wanted you for months.'",
+      "start": 38,
+      "end": 44,
+      "style": "whisper"
+    },
+    {
+      "text": "Girlfriend calls from the kitchen: 'Babe, you okay?'",
+      "start": 44,
+      "end": 50,
+      "style": "body"
+    },
+    {
+      "text": "Sister smiles. 'Don't answer. She doesn't know anything.'",
+      "start": 50,
+      "end": 56,
+      "style": "body"
+    },
+    {
+      "text": "But my phone was recording everything.",
+      "start": 56,
+      "end": 60,
+      "style": "cliffhanger"
+    }
+  ]
+}

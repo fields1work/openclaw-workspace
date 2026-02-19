@@ -1,0 +1,12 @@
+# TikTok Video Generator Dependencies
+# Install with: pip install -r requirements.txt
+
+moviepy==1.0.3
+pillow==10.0.0
+numpy==1.24.3
+requests==2.31.0
+
+# Also requires ffmpeg (system dependency)
+# Windows: choco install ffmpeg
+# Mac: brew install ffmpeg
+# Linux: sudo apt-get install ffmpeg
