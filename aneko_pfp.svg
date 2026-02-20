@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#1a1a2e" rx="80" ry="80"/>
+  
+  <!-- Decorative gradient circle behind paw -->
+  <circle cx="200" cy="200" r="140" fill="#ff6b35" opacity="0.15"/>
+  
+  <!-- Paw Print (Main) -->
+  <g transform="translate(200, 200)" fill="#ff6b35">
+    <!-- Main pad -->
+    <ellipse cx="0" cy="25" rx="45" ry="40"/>
+    
+    <!-- Toe 1 (top left) -->
+    <ellipse cx="-35" cy="-25" rx="20" ry="22"/>
+    
+    <!-- Toe 2 (top middle-left) -->
+    <ellipse cx="-12" cy="-45" rx="18" ry="20"/>
+    
+    <!-- Toe 3 (top middle-right) -->
+    <ellipse cx="12" cy="-45" rx="18" ry="20"/>
+    
+    <!-- Toe 4 (top right) -->
+    <ellipse cx="35" cy="-25" rx="20" ry="22"/>
+  </g>
+  
+  <!-- Small accent dots (subtle tech vibe) -->
+  <circle cx="80" cy="100" r="4" fill="#ff6b35" opacity="0.4"/>
+  <circle cx="100" cy="80" r="3" fill="#ff6b35" opacity="0.3"/>
+  <circle cx="320" cy="300" r="4" fill="#ff6b35" opacity="0.4"/>
+  <circle cx="300" cy="320" r="3" fill="#ff6b35" opacity="0.3"/>
+  
+  <!-- Subtle border glow -->
+  <rect x="10" y="10" width="380" height="380" fill="none" stroke="#ff6b35" stroke-width="3" opacity="0.3" rx="70" ry="70"/>
+</svg>
