@@ -1,0 +1,175 @@
+# CapCut Video Breakdowns - Ready to Edit
+*All 9 Videos - Script + Timing + Text*
+
+---
+
+## VIDEO 001: The Girlfriend's Sister
+**Voiceover:** `content/voiceovers/voiceover_001_girlfriend_sister.mp3`
+**Gameplays:** Use `subway_surfers_001.mp4`
+**Duration:** ~58 seconds
+
+### CapCut Timeline Layout:
+
+**0:00-0:04** [HOOK]
+- Text: "I went to surprise my girlfriend."
+- Style: Orange #ff6b35, Size 64, Typewriter animation
+- Position: Center screen
+
+**0:04-0:09**
+- Text: "I let myself in with the key she gave me."
+- Style: White, Size 54, Fade up
+
+**0:09-0:12** [PAUSE - 3 SECONDS]
+- No text (build tension)
+
+**0:12-0:16**
+- Text: "Heard laughter from the bedroom."
+- Style: White, Size 54
+
+**0:16-0:20**
+- Text: "I opened the door slowly."
+- Style: White, Size 54
+
+**0:20-0:24** [PAUSE - 2 SECONDS]
+- No text
+
+**0:24-0:30**
+- Text: "It wasn't just her in there."
+- Style: Yellow #ffcc00 (key word), Size 58
+
+**0:30-0:38**
+- Text: "Her sister was there too. They were both laughing at something on the laptop."
+- Style: White, Size 54
+- Split into 2 lines if needed
+
+**0:38-0:44**
+- Text: "I stood there for 10 seconds before anyone noticed me."
+- Style: White, Size 54
+
+**0:44-0:54**
+- Text: "My girlfriend's face went pale. Her sister quickly snapped the laptop shut. But not before I saw what was on the screen."
+- Style: White, Size 54
+- Split across multiple captions
+
+**0:54-0:58** [CTA]
+- Text: "Part 2? Follow for more."
+- Style: Orange #ff6b35, Size 58
+
+---
+
+## VIDEO 002: The Boss Affair
+**Voiceover:** `content/voiceovers/voiceover_002_boss_affair.mp3`
+**Gameplay:** Use `gta_gameplay_001.mp4`
+**Duration:** ~55 seconds
+
+### Timeline:
+
+**0:00-0:04** [HOOK]
+- Text: "My boss asked me to stay late."
+- Style: Orange #ff6b35, Size 64, Typewriter
+
+**0:04-0:09**
+- Text: "Said we had 'urgent business' to discuss."
+- Style: White, Size 54
+
+**0:09-0:13** [PAUSE]
+- No text (3 sec)
+
+**0:13-0:19**
+- Text: "His wife was out of town. I should've known then."
+- Style: White, Size 54
+
+**0:19-0:24**
+- Text: "He locked the office door."
+- Style: Yellow #ffcc00, Size 58
+
+**0:24-0:30** [PAUSE]
+- No text (6 sec drama pause)
+
+**0:30-0:38**
+- Text: "Told me I'd been doing 'exceptional work' lately."
+- Style: White, Size 54
+
+**0:38-0:44**
+- Text: "Then he placed his hand on my shoulder."
+- Style: White, Size 54
+
+**0:44-0:50**
+- Text: "I froze. Didn't know what to do."
+- Style: White, Size 54
+
+**0:50-0:55** [CTA]
+- Text: "Should I file a report? Follow for Part 2."
+- Style: Orange #ff6b35, Size 58
+
+---
+
+## VIDEO 003: Fired Over the Intercom
+**Voiceover:** `content/voiceovers/voiceover_003_fired_intercom.mp3`
+**Gameplay:** Use `minecraft_parkour_001.mp4`
+**Duration:** ~52 seconds
+
+### Timeline:
+
+**0:00-0:04** [HOOK]
+- Text: "I got fired over the intercom."
+- Style: Orange #ff6b35, Size 64
+
+**0:04-0:10**
+- Text: "Not a private meeting. Not an email. The whole office heard it."
+- Style: White, Size 54
+
+**0:10-0:16** [PAUSE]
+- No text (6 sec)
+
+**0:16-0:22**
+- Text: "The reason? They said I was 'stealing company time'."
+- Style: White, Size 54
+
+**0:22-0:28**
+- Text: "I was in the bathroom for 12 minutes total that day."
+- Style: Yellow #ffcc00, Size 58
+
+**0:28-0:34** [PAUSE]
+- No text (6 sec)
+
+**0:34-0:40**
+- Text: "My manager smirked when I walked out. Everyone was staring."
+- Style: White, Size 54
+
+**0:40-0:48**
+- Text: "But here's what they don't know. I recorded every conversation."
+- Style: White, Size 54
+
+**0:48-0:52** [CTA]
+- Text: "Want to see the receipts? Follow for Part 2."
+- Style: Orange #ff6b35, Size 58
+
+---
+
+## [Videos 004-009 follow same format]
+
+*Full breakdowns available in content/scripts/OPTIMIZED_SUBTITLE_SCRIPTS.txt*
+
+---
+
+## CAPCUT IMPORT CHECKLIST
+
+### For Each Video:
+1. ✅ Import gameplay video
+2. ✅ Import voiceover MP3
+3. ✅ Auto-captions OR manual text (manual = better timing)
+4. ✅ Style hook (orange, 64pt)
+5. ✅ Style body (white, 54pt, black stroke)
+6. ✅ Sync timing to voiceover  
+7. ✅ Export 1080p, 60fps, HIGH bitrate
+
+### Keyboard Shortcuts:
+- `Space` = Play/Pause
+- `Ctrl+D` = Duplicate
+- `Delete` = Remove
+- `Ctrl+Z` = Undo
+
+---
+
+*Prepared by Aneko 🐾 for FieldsBuildsAI*

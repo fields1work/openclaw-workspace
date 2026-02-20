@@ -1,0 +1,428 @@
+#!/usr/bin/env python3
+"""
+TikTok Video Generator ULTRA v3.0
+PROFESSIONAL QUALITY - 20 Mbps, 60fps, CRF 18
+"""
+
+import os
+import re
+from pathlib import Path
+from moviepy import VideoFileClip, AudioFileClip, TextClip, CompositeVideoClip
+
+# Paths
+OUTPUT_DIR = Path("content/videos_ultra")
+VOICEOVER_DIR = Path("content/voiceovers")
+GAMEPLAY_DIR = Path("content/gameplay")
+
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+# ULTRA Video specs
+VIDEO_WIDTH = 1080
+VIDEO_HEIGHT = 1920
+VIDEO_FPS = 60  # TRUE 60fps
+VIDEO_DURATION = 60
+
+# ULTRA Encoding specs
+VIDEO_BITRATE = "20000k"  # 20 Mbps - Professional
+AUDIO_BITRATE = "256k"    # 256 kbps - Premium audio
+CRF_QUALITY = 18          # CRF 18 = High quality
+H264_PROFILE = "high"     # High profile encoding
+H264_LEVEL = "4.2"        # Level 4.2 supports 1080p60
+
+# Caption styling
+HOOK_COLOR = '#ff6b35'
+BODY_COLOR = '#ffffff'
+ACCENT_COLOR = '#ffcc00'
+STROKE_COLOR = '#000000'
+STROKE_WIDTH = 4
+
+class VideoGeneratorUltra:
+    def __init__(self):
+        pass
+        
+    def parse_script(self, script_text):
+        """Parse script with pause markers"""
+        segments = []
+        lines = script_text.strip().split('\n')
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+                
+            pause_match = re.search(r'\(pause ([\d.]+)s\)', line)
+            pause_duration = float(pause_match.group(1)) if pause_match else 0.5
+            
+            clean_text = re.sub(r'\s*\(pause [\d.]+s\)', '', line)
+            
+            if clean_text:
+                word_count = len(clean_text.split())
+                segment_duration = (word_count / 2.8) + pause_duration
+                
+                is_hook = len(segments) == 0 or any(word in clean_text.upper() for word in 
+                    ['FIRED', 'TERRIFIED', 'PREGNANT', 'DAD', 'BOSS', 'MONEY', 'POLICE', 'WIFE', 'SECRET'])
+                
+                segments.append({
+                    'text': clean_text,
+                    'duration': segment_duration,
+                    'pause': pause_duration,
+                    'is_hook': is_hook
+                })
+                
+        return segments
+    
+    def create_word_captions(self, segments):
+        """Create word-by-word caption clips"""
+        caption_clips = []
+        current_time = 0
+        
+        for segment in segments:
+            words = segment['text'].split()
+            word_duration = (segment['duration'] - segment['pause']) / len(words) if words else 0.5
+            
+            for i, word in enumerate(words):
+                is_key_word = word.isupper() or word in ['BOSS', 'FIRED', 'CHEATING', 'SECRET', 'MONEY', 'POLICE', 'WIFE', 'DAD', 'FILES']
+                is_hook = segment['is_hook'] and i == 0
+                
+                if is_hook:
+                    color = HOOK_COLOR
+                    font_size = 72
+                    y_pos = VIDEO_HEIGHT * 0.25
+                elif is_key_word:
+                    color = ACCENT_COLOR
+                    font_size = 64
+                    y_pos = VIDEO_HEIGHT * 0.75
+                else:
+                    color = BODY_COLOR
+                    font_size = 58
+                    y_pos = VIDEO_HEIGHT * 0.75
+                
+                txt_clip = TextClip(
+                    text=word,
+                    font_size=font_size,
+                    color=color,
+                    stroke_color=STROKE_COLOR,
+                    stroke_width=STROKE_WIDTH,
+                    size=(VIDEO_WIDTH - 100, None),
+                    text_align='center',
+                    duration=word_duration
+                )
+                
+                txt_clip = txt_clip.with_position(('center', y_pos)).with_start(current_time)
+                caption_clips.append(txt_clip)
+                
+                current_time += word_duration
+            
+            current_time += segment['pause']
+        
+        return caption_clips
+    
+    def generate_video(self, script_num, script_name, gameplay_file, voiceover_file, output_name, script_text):
+        print(f"\n🔥 ULTRA Video {script_num}: {script_name}")
+        print("=" * 60)
+        
+        gameplay_path = GAMEPLAY_DIR / gameplay_file
+        voiceover_path = VOICEOVER_DIR / voiceover_file
+        output_path = OUTPUT_DIR / f"{output_name}_ULTRA.mp4"
+        
+        # Check if already done
+        if output_path.exists() and output_path.stat().st_size > 50000000:
+            print(f"✅ Already exists ({output_path.stat().st_size/1024/1024:.1f} MB), skipping")
+            return True
+        
+        try:
+            print("📹 Loading 4K gameplay source...")
+            gameplay = VideoFileClip(str(gameplay_path))
+            
+            # Loop if needed
+            if gameplay.duration < VIDEO_DURATION:
+                gameplay = gameplay.with_duration(VIDEO_DURATION).fx("vfx.loop", duration=VIDEO_DURATION)
+            else:
+                gameplay = gameplay.subclipped(0, VIDEO_DURATION)
+            
+            print("📐 Resizing to 1080x1920 ULTRA...")
+            gameplay = gameplay.resized(new_size=(VIDEO_WIDTH, VIDEO_HEIGHT))
+            
+            print("🎙️ Loading premium audio...")
+            audio = AudioFileClip(str(voiceover_path))
+            if audio.duration > VIDEO_DURATION:
+                audio = audio.subclipped(0, VIDEO_DURATION)
+            
+            gameplay = gameplay.with_audio(audio)
+            
+            print("📝 Creating ULTRA captions...")
+            segments = self.parse_script(script_text)
+            captions = self.create_word_captions(segments)
+            
+            print(f"🎨 Compositing {len(captions)} ULTRA caption layers...")
+            all_clips = [gameplay] + captions
+            final_video = CompositeVideoClip(all_clips, size=(VIDEO_WIDTH, VIDEO_HEIGHT))
+            
+            print("🔥 EXPORTING ULTRA QUALITY:")
+            print(f"   • {VIDEO_FPS}fps TRUE smooth motion")
+            print(f"   • {VIDEO_BITRATE} bitrate (20 Mbps)")
+            print(f"   • CRF {CRF_QUALITY} encoding")
+            print(f"   • High Profile H.264")
+            print(f"   • {AUDIO_BITRATE} audio")
+            print("   ETA: ~6-7 minutes per video...")
+            
+            final_video.write_videofile(
+                str(output_path),
+                fps=VIDEO_FPS,
+                codec='libx264',
+                audio_codec='aac',
+                bitrate=VIDEO_BITRATE,
+                audio_bitrate=AUDIO_BITRATE,
+                temp_audiofile='temp-audio.m4a',
+                remove_temp=True,
+                ffmpeg_params=[
+                    '-crf', str(CRF_QUALITY),
+                    '-profile:v', H264_PROFILE,
+                    '-level', H264_LEVEL,
+                    '-preset', 'slow',  # Slower = better quality
+                    '-movflags', '+faststart'  # Web-optimized
+                ],
+                logger=None
+            )
+            
+            gameplay.close()
+            audio.close()
+            final_video.close()
+            
+            size = output_path.stat().st_size / (1024*1024)
+            print(f"✅ ULTRA DONE! ({size:.1f} MB)")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Error: {str(e)[:100]}")
+            import traceback
+            traceback.print_exc()
+            return False
+
+# All 9 scripts with pauses
+SCRIPTS = {
+    1: """I just found out... (pause 1.0s)
+My girlfriend's sister... (pause 0.8s)
+Is actually my boss's wife. (pause 1.2s)
+Let me explain. (pause 0.5s)
+Last week... (pause 0.5s)
+I saw my boss at a restaurant. (pause 0.6s)
+He was with a woman. (pause 0.8s)
+She looked familiar. (pause 0.8s)
+Too familiar. (pause 1.0s)
+I didn't think much of it. (pause 0.5s)
+Until yesterday. (pause 1.0s)
+My girlfriend invited me to family dinner. (pause 0.6s)
+Her sister walks in. (pause 0.8s)
+Same woman. (pause 0.8s)
+Same restaurant. (pause 0.8s)
+My boss's "business dinner." (pause 1.2s)
+Now I have photos... (pause 1.0s)
+And a choice to make. (pause 1.5s)
+Follow for Part 2. (pause 0.5s)
+This gets worse.""",
+
+    2: """My boss just called me... (pause 0.8s)
+Into his office. (pause 0.6s)
+He thinks I don't know. (pause 1.0s)
+But I saw everything. (pause 1.2s)
+Three weeks ago... (pause 0.5s)
+Late night at the office. (pause 0.6s)
+I forgot my charger. (pause 0.6s)
+Went back upstairs. (pause 0.6s)
+The door was locked. (pause 0.8s)
+But the glass wall... (pause 0.8s)
+Isn't frosted at the top. (pause 1.0s)
+I saw them. (pause 1.2s)
+My boss. (pause 0.8s)
+And my coworker's wife. (pause 1.2s)
+Now he wants to "talk." (pause 1.0s)
+About my "future at the company." (pause 1.0s)
+He has NO idea... (pause 1.0s)
+I recorded everything. (pause 1.5s)
+Follow for what happens next.""",
+
+    3: """I got FIRED today. (pause 1.2s)
+But I'm not mad. (pause 0.8s)
+I'm TERRIFIED. (pause 1.0s)
+On my way out... (pause 0.6s)
+Security walked me to my car. (pause 0.6s)
+That's normal, right? (pause 0.8s)
+Except they didn't leave. (pause 0.8s)
+They FOLLOWED me home. (pause 1.0s)
+Sat outside my house... (pause 0.8s)
+For THREE HOURS. (pause 1.2s)
+I called the cops. (pause 0.6s)
+They told me... (pause 1.0s)
+"We can't help you." (pause 1.0s)
+"Call your former employer." (pause 1.0s)
+My boss answered. (pause 0.8s)
+"You saw the files." (pause 1.2s)
+"We need to talk." (pause 1.0s)
+I never saw any files. (pause 1.2s)
+Or did I? (pause 1.5s)
+Part 2 drops tomorrow.""",
+
+    4: """I found a bag... (pause 0.8s)
+In my grandfather's attic. (pause 0.6s)
+$47,000 in cash. (pause 1.2s)
+And a note. (pause 0.8s)
+"Don't tell your mother." (pause 1.0s)
+I was going to listen. (pause 0.6s)
+Until I checked the bills. (pause 0.8s)
+They're ALL sequential. (pause 1.0s)
+And dated... (pause 1.0s)
+Two weeks ago. (pause 0.8s)
+Grandpa died six months ago. (pause 1.2s)
+Someone put this here. (pause 0.8s)
+Recently. (pause 1.0s)
+Last night... (pause 0.8s)
+I heard footsteps upstairs. (pause 0.8s)
+The attic door opened. (pause 1.0s)
+I grabbed the bag... (pause 0.8s)
+And hid in the closet. (pause 1.0s)
+They didn't take anything. (pause 0.8s)
+They left something. (pause 1.2s)
+Another note. (pause 1.5s)
+Part 2 reveals what it said.""",
+
+    5: """My roommate has been drugging me... (pause 1.0s)
+For three months. (pause 1.2s)
+I thought I was tired. (pause 0.6s)
+Stressed. (pause 0.6s)
+Burned out. (pause 0.8s)
+But it's been him. (pause 1.0s)
+Crushing Adderall... (pause 0.8s)
+Into my coffee. (pause 0.8s)
+I found his stash... (pause 0.8s)
+Hidden in the bathroom vent. (pause 1.0s)
+With photos. (pause 1.0s)
+Of me sleeping. (pause 1.0s)
+Dozens of them. (pause 0.8s)
+Timestamped. (pause 0.8s)
+I called the police. (pause 0.6s)
+They asked one question. (pause 1.0s)
+"Are you the leaseholder?" (pause 1.0s)
+I'm not. (pause 0.8s)
+He is. (pause 0.8s)
+They said... (pause 1.2s)
+"This is a civil matter." (pause 1.5s)
+Part 2 drops when I hit 10K.""",
+
+    6: """The other woman called me. (pause 1.0s)
+She didn't know... (pause 0.8s)
+She was the other woman. (pause 1.0s)
+Thought I was. (pause 0.8s)
+We compared dates. (pause 0.6s)
+Text messages. (pause 0.6s)
+Hotel receipts. (pause 0.6s)
+He's been seeing us both... (pause 0.8s)
+For TWO YEARS. (pause 1.2s)
+Same nights. (pause 0.8s)
+Same excuses. (pause 0.8s)
+"Working late." (pause 1.0s)
+But here's where it gets crazy. (pause 1.0s)
+She's pregnant. (pause 1.5s)
+Five months. (pause 1.0s)
+He doesn't know I know. (pause 1.0s)
+And she doesn't know... (pause 1.2s)
+I'm his WIFE. (pause 1.5s)
+Follow for the confrontation.""",
+
+    7: """My landlord found my TikTok. (pause 1.0s)
+He's EVICTING me. (pause 1.2s)
+Not for the videos. (pause 0.8s)
+For what I SAID. (pause 1.0s)
+I made a video... (pause 0.6s)
+About my apartment problems. (pause 0.6s)
+The mold. (pause 0.6s)
+The broken heater. (pause 0.6s)
+The leaks. (pause 0.6s)
+Never named him. (pause 0.8s)
+Never named the building. (pause 0.8s)
+But he found it. (pause 0.8s)
+His lawyer sent a letter. (pause 1.0s)
+"Defamation and breach of lease." (pause 1.0s)
+Three days to leave. (pause 1.0s)
+I called a lawyer. (pause 0.6s)
+She asked one thing. (pause 0.8s)
+"Did you record the mold?" (pause 1.2s)
+I did. (pause 1.0s)
+Everything. (pause 1.5s)
+Part 2: His reaction when he finds out.""",
+
+    8: """My professor is selling exam answers... (pause 1.0s)
+On the dark web. (pause 1.2s)
+I found out by accident. (pause 0.6s)
+Researching for a paper. (pause 0.6s)
+Clicked the wrong link. (pause 0.8s)
+Saw his USERNAME. (pause 1.0s)
+His PHOTO. (pause 1.0s)
+Prices listed by course code. (pause 1.0s)
+"Intro to Economics - $500" (pause 1.0s)
+"Advanced Accounting - $800" (pause 1.0s)
+I bought one. (pause 0.8s)
+To see if it was real. (pause 0.8s)
+It was. (pause 1.0s)
+Every answer. (pause 0.8s)
+Exact questions from my midterm. (pause 1.2s)
+Yesterday... (pause 0.8s)
+He announced a "random" cheating investigation. (pause 1.0s)
+Said he has a LIST. (pause 1.2s)
+Of buyers. (pause 1.5s)
+Part 2: I'm on that list.""",
+
+    9: """My online friend of two years... (pause 0.8s)
+Is my DAD. (pause 1.5s)
+We met in a gaming Discord. (pause 0.6s)
+Same favorite game. (pause 0.6s)
+Same sense of humor. (pause 0.6s)
+We talked EVERY DAY. (pause 1.0s)
+Shared things... (pause 0.8s)
+I never told anyone else. (pause 0.8s)
+Last week... (pause 0.8s)
+He sent a photo by mistake. (pause 1.0s)
+His reflection... (pause 1.0s)
+In his monitor. (pause 0.8s)
+I saw his FACE. (pause 1.2s)
+My dad's FACE. (pause 1.5s)
+He doesn't know I recognized him. (pause 1.0s)
+He still messages me. (pause 0.8s)
+"Good morning, buddy." (pause 1.0s)
+I haven't responded... (pause 1.2s)
+In three days. (pause 1.5s)
+Part 2: What I found in his DMs.""",
+}
+
+# Main execution
+if __name__ == "__main__":
+    generator = VideoGeneratorUltra()
+    
+    videos = [
+        (1, "Girlfriend's Sister", "subway_surfers.mp4", "voiceover_001_girlfriend_sister.mp3", "tiktok_001"),
+        (2, "Boss Affair", "gta_driving.mp4", "voiceover_002_boss_affair.mp3", "tiktok_002"),
+        (3, "Fired Revelation", "minecraft_parkour.mp4", "voiceover_003_fired_revelation.mp3", "tiktok_003"),
+        (4, "Money Hustle", "subway_surfers.mp4", "voiceover_004_money_hustle.mp3", "tiktok_004"),
+        (5, "Roommate Adderall", "gta_driving.mp4", "voiceover_005_roommate_adderall.mp3", "tiktok_005"),
+        (6, "Other Woman", "minecraft_parkour.mp4", "voiceover_006_other_woman.mp3", "tiktok_006"),
+        (7, "Landlord TikTok", "subway_surfers.mp4", "voiceover_007_landlord_tiktok_gtts.mp3", "tiktok_007"),
+        (8, "Professor Dark Web", "gta_driving.mp4", "voiceover_008_professor_darkweb_gtts.mp3", "tiktok_008"),
+        (9, "Online Friend/Dad", "minecraft_parkour.mp4", "voiceover_009_online_friend_dad_gtts.mp3", "tiktok_009"),
+    ]
+    
+    print("=" * 60)
+    print("🔥 TIKTOK VIDEO GENERATOR ULTRA v3.0 🔥")
+    print("PROFESSIONAL QUALITY: 20 Mbps | 60fps | CRF 18")
+    print("=" * 60)
+    
+    success = 0
+    for num, name, gameplay, voiceover, output in videos:
+        script = SCRIPTS.get(num, "")
+        if script and generator.generate_video(num, name, gameplay, voiceover, output, script):
+            success += 1
+        print()
+    
+    print("=" * 60)
+    print(f"🎉 ULTRA COMPLETE: {success}/{len(videos)} videos generated!")
+    print(f"📁 Location: {OUTPUT_DIR}/")
+    print("=" * 60)

@@ -1,0 +1,95 @@
+# CapCut Project Template - FieldsBuildsAI
+*Optimized for Reddit Drama TikToks*
+
+## PROJECT SETUP
+
+### Video Dimensions
+- Resolution: 1080 x 1920 (9:16)
+- Frame Rate: 60fps
+- Duration: 60 seconds
+
+### LAYER STRUCTURE (Bottom to Top)
+
+**Layer 1: Background Gameplay**
+- File: gameplay_video.mp4
+- Opacity: 100%
+- Scale: Fill frame
+- Position: Center
+
+**Layer 2: Voiceover Audio**
+- File: voiceover.mp3
+- Volume: 100%
+- Background Music: 15% (lofi optional)
+
+**Layer 3-6: Caption Text Blocks**
+- Font: League Spartan Bold
+- Size: 54pt
+- Color: #FFFFFF (white)
+- Stroke: 4px #000000 (black)
+- Position: Bottom center, lower 1/3
+- Animation: Typewriter (Hook) / Fade Up (Body)
+
+**Layer 7: Hook Highlight**
+- First 3 seconds only
+- Color: #ff6b35 (orange)
+- Size: 64pt
+- Animation: Pop with bounce
+
+**Layer 8: Logo Watermark**
+- Position: Bottom right corner
+- Opacity: 80%
+- Scale: 15%
+
+---
+
+## TEXT STYLING PRESETS
+
+### Hook Text (0-3 seconds)
+```
+Font: League Spartan Bold
+Size: 64pt
+Color: #ff6b35
+Stroke: 4px #000000
+Shadow: None
+Animation: Typewriter 0.8s
+```
+
+### Body Text (3-60 seconds)
+```
+Font: League Spartan Medium
+Size: 54pt
+Color: #ffffff
+Stroke: 4px #000000
+Shadow: Subtle drop
+Animation: Fade up 0.3s
+```
+
+### Key Word Highlight
+```
+Same as body but:
+Color: #ffcc00 (yellow)
+Size: 58pt
+```
+
+---
+
+## EXPORT PRESET
+
+**Settings:**
+- Resolution: 1080 × 1920
+- Quality: HIGH (30-50 Mbps)
+- Frame Rate: 60fps
+- Format: MP4
+- Audio: AAC 320kbps
+
+---
+
+## ASSETS READY
+
+Voiceovers: content/voiceovers/
+Gameplay: content/gameplay/
+Scripts: content/scripts/OPTIMIZED_SUBTITLE_SCRIPTS.txt
+
+---
+
+*Template for FieldsBuildsAI TikTok Content*
