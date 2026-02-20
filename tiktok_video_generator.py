@@ -74,9 +74,15 @@ class TikTokVideoGenerator:
         print(f"📐 Resolution: {VIDEO_WIDTH}x{VIDEO_HEIGHT}")
         
         try:
-            from moviepy.editor import (VideoFileClip, AudioFileClip, TextClip, 
-                                       CompositeVideoClip, ColorClip)
-            from moviepy.video.fx.all import resize
+            # Try new moviepy 2.x API first
+            try:
+                from moviepy import VideoFileClip, AudioFileClip, TextClip, CompositeVideoClip, ColorClip
+                from moviepy import vfx
+                resize = vfx.resize
+            except ImportError:
+                # Fall back to old moviepy 1.x API
+                from moviepy.editor import VideoFileClip, AudioFileClip, TextClip, CompositeVideoClip, ColorClip
+                from moviepy.video.fx.all import resize
             
             # Load gameplay footage
             gameplay_path = GAMEPLAY_DIR / f"{self.script.get('gameplay_type', 'subway_surfers')}.mp4"
@@ -98,7 +104,11 @@ class TikTokVideoGenerator:
             gameplay = gameplay.subclip(0, VIDEO_DURATION)
             
             # Resize to 9:16 vertical (1080x1920)
-            gameplay = gameplay.resize((VIDEO_WIDTH, VIDEO_HEIGHT))
+            print(f"📐 Resizing to {VIDEO_WIDTH}x{VIDEO_HEIGHT}...")
+            try:
+                gameplay = gameplay.resized(new_size=(VIDEO_WIDTH, VIDEO_HEIGHT))
+            except:
+                gameplay = gameplay.with_effects([vfx.Resize(new_size=(VIDEO_WIDTH, VIDEO_HEIGHT))])
             
             # Load voiceover
             voiceover_path = VOICEOVER_DIR / self.script.get('voiceover_file', 'voiceover.mp3')
