@@ -11,9 +11,10 @@ numpy>=1.21.0
 pydub>=0.25.1
 tiktoken>=0.4.0  # For script tokenization
 
-# TTS Integration
-elevenlabs>=1.0.0
-openai>=1.0.0  # Fallback TTS
+# TTS Integration (FREE options)
+edge-tts>=6.1.0  # Microsoft Edge TTS (FREE, no API key)
+# elevenlabs>=1.0.0  # DISABLED - tokens exhausted
+# openai>=1.0.0  # Fallback TTS
 
 # Reddit Scraping
 praw>=7.7.0  # Reddit API
