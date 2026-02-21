@@ -1,0 +1,70 @@
+{
+  "hook": "I caught my wife with their 'boss'",
+  "context": [
+    "I thought I knew everything about Sarah.",
+    "We'd been married for three years.",
+    "She traveled for work every other weekend."
+  ],
+  "escalation": [
+    {
+      "text": "But six months ago, things got weird.",
+      "pause": 0.15,
+      "effect": "zoom"
+    },
+    {
+      "text": "She started locking her phone.",
+      "pause": 0.1,
+      "effect": ""
+    },
+    {
+      "text": "Taking calls in the bathroom.",
+      "pause": 0.1,
+      "effect": ""
+    },
+    {
+      "text": "I hired a private investigator.",
+      "pause": 0.2,
+      "effect": "sfx_pop"
+    },
+    {
+      "text": "Photos hit my phone three hours later.",
+      "pause": 0.25,
+      "effect": "speed_ramp"
+    },
+    {
+      "text": "Sarah with two kids.",
+      "pause": 0.2,
+      "effect": ""
+    },
+    {
+      "text": "A man kissing her goodbye.",
+      "pause": 0.25,
+      "effect": ""
+    },
+    {
+      "text": "I sat in my car for an hour.",
+      "pause": 0.3,
+      "effect": "cut"
+    },
+    {
+      "text": "When she got home, I confronted her.",
+      "pause": 0.15,
+      "effect": ""
+    },
+    {
+      "text": "She didn't deny it.",
+      "pause": 0.3,
+      "effect": "zoom"
+    }
+  ],
+  "twist": "She said: 'They're mine and David's.' David is her husband. Her OTHER husband. She's been married to him for eight years.",
+  "cliffhanger": "I've been the affair partner this whole time. I was the other man. Should I tell David?",
+  "cta": "Part 2 if this hits 1K likes.",
+  "metadata": {
+    "generated_at": "2026-02-20T21:38:58.786841",
+    "target_duration": 60,
+    "category": "relationship_betrayal",
+    "pattern_interrupts": 6,
+    "estimated_words": 122
+  }
+}
