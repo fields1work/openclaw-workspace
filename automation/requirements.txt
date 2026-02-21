@@ -1,0 +1,35 @@
+# TikTok Reddit Story Video Automation System
+# MVP Build - Phase 1
+# Install: pip install -r requirements.txt
+
+# Core video processing
+moviepy>=1.0.3
+Pillow>=9.0.0
+numpy>=1.21.0
+
+# Audio processing  
+pydub>=0.25.1
+tiktoken>=0.4.0  # For script tokenization
+
+# TTS Integration
+elevenlabs>=1.0.0
+openai>=1.0.0  # Fallback TTS
+
+# Reddit Scraping
+praw>=7.7.0  # Reddit API
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+ # Caption timing
+openai-whisper>=20231117  # Local transcription
+deepgram-sdk>=2.12.0  # Cloud transcription option
+
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.65.0  # Progress bars
+pathlib>=1.0.1
+datetime>=4.3
+
+# File handling
+certifi>=2023.7.22
+urllib3>=2.0.0
