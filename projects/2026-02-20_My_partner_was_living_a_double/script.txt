@@ -1,0 +1,24 @@
+HOOK: My partner was living a double life
+
+CONTEXT:
+  I thought I knew everything about Sarah.
+  We'd been married for three years.
+  She traveled for work every other weekend.
+
+ESCALATION:
+  [zoom] But six months ago, things got weird.
+  [] She started locking her phone.
+  [] Taking calls in the bathroom.
+  [sfx_pop] I hired a private investigator.
+  [speed_ramp] Photos hit my phone three hours later.
+  [] Sarah with two kids.
+  [] A man kissing her goodbye.
+  [cut] I sat in my car for an hour.
+  [] When she got home, I confronted her.
+  [zoom] She didn't deny it.
+
+TWIST: She said: 'They're mine and David's.' David is her husband. Her OTHER husband. She's been married to him for eight years.
+
+CLIFFHANGER: I've been the affair partner this whole time. I was the other man. Should I tell David?
+
+CTA: Part 2 if this hits 1K likes.

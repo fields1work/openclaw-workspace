@@ -1,0 +1,10 @@
+{
+  "batch_date": "2026-02-20",
+  "videos_generated": 3,
+  "packages": [
+    "projects\\2026-02-20_My_partner_was_living_a_double",
+    "projects\\2026-02-20_My_boyfriend_was_living_a_doub",
+    "projects\\2026-02-20_My_partner_had_a_secret_addict"
+  ],
+  "status": "READY_FOR_TTS"
+}
