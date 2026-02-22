@@ -1,5 +1,16 @@
 # HEARTBEAT.md
 
+## ⏰ MORNING BRIEF CHECK (8:00 AM Daily - America/Chicago)
+**CRITICAL:** If time is 7:45 AM - 8:15 AM, deliver morning brief:
+1. Weather in Illinois (Chicago area)
+2. Top news stories (AI/stock market focus)
+3. Personal tasks for Fields
+4. Aneko tasks to complete for goals
+
+**If missed, deliver ASAP with apology.**
+
+---
+
 ## 🚀 BUSINESS DEVELOPMENT - COMPLETE
 *Comprehensive Strategy Created*  
 **Date:** Feb 19-20, 2026 | **Status:** Ready for Execution
