@@ -11,6 +11,23 @@
 
 ---
 
+## 💓 REGULAR HEARTBEAT CHECKS (Every 30 Minutes)
+**These are SEPARATE from the 8 AM morning brief.**
+
+When you receive a heartbeat poll:
+- Read HEARTBEAT.md (this file)
+- Check if anything needs attention
+- If YES: Alert the user (browser extension status, completed tasks, etc.)
+- If NO: Reply exactly `HEARTBEAT_OK` (this tells the system everything is fine)
+
+**Current Status to Monitor:**
+- [ ] Browser Extension — Awaiting user activation (see EXTENSION_FIX_QUICK_START.md)
+- [ ] Autonomous Work — TikTok scripts in progress
+- [ ] Gateway Service — Running (manual start)
+- [ ] Cron Jobs — Both re-enabled (heartbeat + progress updates)
+
+---
+
 ## 🚀 BUSINESS DEVELOPMENT - COMPLETE
 *Comprehensive Strategy Created*  
 **Date:** Feb 19-20, 2026 | **Status:** Ready for Execution
