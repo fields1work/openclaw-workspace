@@ -2,7 +2,7 @@
 import discord
 import asyncio
 
-TOKEN = "YOUR_BOT_TOKEN_HERE"
+TOKEN = "YOUR_BOT_TOKEN_HERE"  # Get from discord.com/developers
 GUILD_ID = 1474950545704747010
 
 intents = discord.Intents.default()

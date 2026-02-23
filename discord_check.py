@@ -1,6 +1,6 @@
 import discord
 
-TOKEN = "YOUR_BOT_TOKEN_HERE"
+TOKEN = "YOUR_BOT_TOKEN_HERE"  # Get from discord.com/developers
 
 intents = discord.Intents.default()
 intents.guilds = True

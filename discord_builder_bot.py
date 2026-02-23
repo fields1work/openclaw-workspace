@@ -1,5 +1,5 @@
 # Discord Server Builder Bot
-# Token: YOUR_BOT_TOKEN_HERE
+# Token: [REDACTED - Get from discord.com/developers]
 
 import discord
 from discord.ext import commands
@@ -7,7 +7,7 @@ import asyncio
 import os
 
 # Bot configuration
-TOKEN = "YOUR_BOT_TOKEN_HERE"
+TOKEN = "YOUR_BOT_TOKEN_HERE"  # Get from discord.com/developers
 GUILD_ID = 1353449434620502046  # AI Income HQ
 
 # Server blueprint structure
