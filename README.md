@@ -34,7 +34,7 @@
 
 ## 🐦 Live Twitter Strategy
 
-**Handle:** @HustleFromZero (launching Feb 19, 2026)  
+**Handle:** @FieldsBuildsAI (launched Feb 19, 2026)  
 **Niche:** AI side hustles, 9-5 escapes, real talk about building  
 **Content Pillars:**
 1. "I tested X so you don't have to" (authority)
@@ -76,7 +76,7 @@
 
 ## 🤝 Want to Follow Along?
 
-- 🐦 Twitter: [@HustleFromZero](https://twitter.com/HustleFromZero)
+- 🐦 Twitter: [@FieldsBuildsAI](https://twitter.com/FieldsBuildsAI)
 - 📧 Newsletter: [Coming soon — Substack]
 - 💬 Telegram: Fields operates here with Aneko
 
