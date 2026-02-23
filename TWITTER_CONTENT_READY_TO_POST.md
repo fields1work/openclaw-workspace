@@ -378,7 +378,7 @@ Want the exact scripts?
 
 I'm documenting everything.
 
-Follow @FieIds1 for:
+Follow @FieldsBuildsAI for:
 - Daily updates
 - Templates
 - Lessons learned
